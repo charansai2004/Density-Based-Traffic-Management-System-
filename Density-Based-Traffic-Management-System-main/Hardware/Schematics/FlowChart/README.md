@@ -1,0 +1,11 @@
+# Density-Based Traffic Management System FlowChart
+
+The [density-based traffic management system flowchart](./Flowchart-of-DBTMS.png) outlines the operational sequence for managing traffic signals based on real-time traffic density. Initially, all components, including the Arduino Mega microcontroller, ultrasonic sensors, LEDs for traffic lights, and timers using four seven-segment displays, are initialized to facilitate the process flow. This setup enables the system to collect and control traffic conditions effectively.
+
+The system gathers data from the ultrasonic sensors, which detect vehicles within a specific range and measure traffic density. Once data collection is complete, if at least one sensor does not detect any movement on the road, the road will default to a red light with the timer off. The system then moves on to the next road in sequence. 
+
+If traffic is detected, the system analyzes the density conditions from both ultrasonic sensors. First, it checks whether both sensors detect traffic, indicating high traffic density. In this case, the system will activate the green light for 10 seconds, followed by the yellow light for 5 seconds, with a timer counting down for a total of 15 seconds to provide drivers with a visual countdown. After completing this operation, the components for the current road will revert to their default state, and the system will proceed to the next road.
+
+If only the first sensor detects traffic, this indicates low traffic density. In this situation, the system will display a green signal for 5 seconds, followed by a yellow signal for 5 seconds, while the timer runs for a total of 10 seconds. After this sequence, the system will reset the components for the current road and continue to the next cycle. If neither sensor detects traffic on the road after data processing, the road will remain in its default state.
+
+In this project, the threshold value for the simulation is set at 350 cm, while for the prototype, it is 12 cm. The low-density timer is configured for 10 seconds, with 5 seconds for green and 5 seconds for yellow, while the high-density timer is set for 15 seconds, comprising 10 seconds for green and 5 seconds for yellow. Timings for the components can be adjusted according to real-time application needs.
